@@ -21,23 +21,21 @@ public class VeiculoDao {
 		bancoVeiculos.add(v);
 	}
 	
-	public String alterar(String carro) {
+	public void alterar() {
 			
 		}
 	
-	public String consultar(String model) {
-		String resultado = " ";
+	public Veiculo consultar(String placa) {
 		for (Veiculo elemento : bancoVeiculos) {
-			if (model.equalsIgnoreCase(elemento.getModelo())) {
-				resultado += elemento.getModelo() + " - " + elemento.getPlaca() + " - " + elemento.getPotencia();
-				return resultado;
+			if (placa.equalsIgnoreCase(elemento.getPlaca())) {
+				return elemento;
 			}
 		}
-			return null;
+		return null;
 	}
 	
 	public void apagar(Veiculo v) {
-		bancoVeiculos.remove(v);
+			bancoVeiculos.remove(v);
 	}
 
 	public String listVeiculos() {

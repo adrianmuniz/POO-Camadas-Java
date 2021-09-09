@@ -16,6 +16,7 @@ public class ExecutarVeiculo {
 		Scanner s = new Scanner (System.in);
 		
 		char opc = ' ';
+		String placa;
 		
 		do {
 			System.out.println("Controle de Veiculo");
@@ -33,17 +34,18 @@ public class ExecutarVeiculo {
 				dao.incluir(v);
 				break;
 			 case 'R' :
-				 String model = JOptionPane.showInputDialog("Qual carro quer consultar?");
-				 
-				 System.out.println(dao.consultar(model));
-				 
+				 Veiculo vconsulta = new Veiculo();
+				 placa = JOptionPane.showInputDialog("Qual carro quer consultar?");
+				 vconsulta = dao.consultar(placa);
+				 JOptionPane.showMessageDialog(null,"\nPlaca: " + vconsulta.getPlaca() + "\nModelo: " + vconsulta.getModelo());
 				 break;
 			 case 'U' :
-				 String carro = JOptionPane.showInputDialog("Qual carro deseja alterar?");
 				 
 				 break;
 			 case 'D' :
-				 System.out.println("Apagar");
+				 placa = JOptionPane.showInputDialog("Digite a placa do carro que deseja apagar:");
+				 vconsulta = dao.consultar(placa);
+				 dao.apagar(vconsulta);
 				 break;
 			 case 'L' :
 				 System.out.println(dao.listVeiculos());
