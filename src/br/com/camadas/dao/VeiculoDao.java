@@ -3,6 +3,8 @@ package br.com.camadas.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import br.com.camadas.beans.Veiculo;
 
 public class VeiculoDao {
@@ -19,17 +21,32 @@ public class VeiculoDao {
 		bancoVeiculos.add(v);
 	}
 	
-	public void alterar(int posicao, Veiculo v) {
-		bancoVeiculos.set(posicao, v);
-	}
+	public String alterar(String carro) {
+			
+		}
 	
-	public void consultar(int posicao) {
-		bancoVeiculos.get(posicao);
+	public String consultar(String model) {
+		String resultado = " ";
+		for (Veiculo elemento : bancoVeiculos) {
+			if (model.equalsIgnoreCase(elemento.getModelo())) {
+				resultado += elemento.getModelo() + " - " + elemento.getPlaca() + " - " + elemento.getPotencia();
+				return resultado;
+			}
+		}
+			return null;
 	}
 	
 	public void apagar(Veiculo v) {
 		bancoVeiculos.remove(v);
 	}
-	
+
+	public String listVeiculos() {
+		String resultado = "";
+		for (Veiculo elemento : bancoVeiculos) {
+			resultado += "\nPlaca:" + elemento.getPlaca() + " - " + elemento.getModelo();
+		}
+		
+		return resultado;
+	}
 	
 }
