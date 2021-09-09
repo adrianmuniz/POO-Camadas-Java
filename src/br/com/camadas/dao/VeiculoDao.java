@@ -21,8 +21,9 @@ public class VeiculoDao {
 		bancoVeiculos.add(v);
 	}
 	
-	public void alterar() {
-			
+	public void alterar(Veiculo v) {
+				v.setModelo(JOptionPane.showInputDialog("Novo modelo:"));
+				v.setPotencia(Float.parseFloat(JOptionPane.showInputDialog("Nova Potencia:")));
 		}
 	
 	public Veiculo consultar(String placa) {

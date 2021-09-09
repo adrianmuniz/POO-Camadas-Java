@@ -40,7 +40,9 @@ public class ExecutarVeiculo {
 				 JOptionPane.showMessageDialog(null,"\nPlaca: " + vconsulta.getPlaca() + "\nModelo: " + vconsulta.getModelo());
 				 break;
 			 case 'U' :
-				 
+				 placa = JOptionPane.showInputDialog("Digite a placa do carro que deseja alterar:");
+				 vconsulta = dao.consultar(placa);
+				 dao.alterar(vconsulta);
 				 break;
 			 case 'D' :
 				 placa = JOptionPane.showInputDialog("Digite a placa do carro que deseja apagar:");
