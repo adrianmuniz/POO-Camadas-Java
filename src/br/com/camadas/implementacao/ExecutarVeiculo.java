@@ -32,6 +32,7 @@ public class ExecutarVeiculo {
 				v.setPotencia(Float.parseFloat(JOptionPane.showInputDialog("Potencia: ")));
 				
 				dao.incluir(v);
+				
 				break;
 			 case 'R' :
 				 Veiculo vconsulta = new Veiculo();
